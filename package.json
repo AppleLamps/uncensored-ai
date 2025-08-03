@@ -1,0 +1,40 @@
+{
+  "name": "uncensored-ai",
+  "version": "1.0.0",
+  "description": "UNCENSORED AI - A modern chat application with AI provider integration",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-legacy": "^5.0.0",
+    "terser": "^5.24.0"
+  },
+  "dependencies": {
+    "marked": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/uncensored-ai.git"
+  },
+  "keywords": [
+    "chat",
+    "ai",
+    "javascript",
+    "vanilla-js",
+    "openai",
+    "anthropic",
+    "google",
+    "conversation"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "private": true
+} 

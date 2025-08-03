@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-modern-gray">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+    <title>Settings - UNCENSORED AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+    <!-- Prism theme placed BEFORE formatted-content to allow overrides -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="assets/css/formatted-content.css">
+    <link rel="stylesheet" href="assets/css/color-themes.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
+    <script>
+        // Initialize theme based on localStorage or system preference
+        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', currentTheme === 'dark');
+        document.documentElement.classList.toggle('light', currentTheme === 'light');
+
+        // Apply modern-gray theme by default
+        const savedColorTheme = localStorage.getItem('t3chat_color_theme') || 'modern-gray';
+        if (savedColorTheme !== 'default') {
+            document.documentElement.classList.add(`theme-${savedColorTheme}`);
+        }
+
+        // When DOM is loaded, set the icon visibility
+        document.addEventListener('DOMContentLoaded', () => {
+            const sunIcon = document.querySelector('.icon-sun');
+            const moonIcon = document.querySelector('.icon-moon');
+
+            if (sunIcon && moonIcon) {
+                sunIcon.style.display = currentTheme === 'dark' ? 'none' : 'block';
+                moonIcon.style.display = currentTheme === 'dark' ? 'block' : 'none';
+            }
+        });
+    </script>
+    <script type="module" src="assets/js/env.js"></script>
+    <script type="module" src="assets/js/views/settingsView.js"></script>
+</head>
+
+<body class="font-sans">
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div class="settings-wrapper">
+        <header class="settings-header">
+            <div class="header-left">
+                <a href="index.html" class="back-button">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    Back to Chat
+                </a>
+            </div>
+            <div class="header-right">
+                <button type="button" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="icon icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="icon icon-sun" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M5.64 5.64l1.42 1.42m9.9 9.9 1.42 1.42M3 12h2m14 0h2M5.64 18.36l1.42-1.42m9.9-9.9 1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/></svg>
+                </button>
+                <button type="button" class="sign-out">Sign out</button>
+            </div>
+        </header>
+
+        <main class="settings-main">
+            <div class="settings-sidebar">
+                <div class="user-profile-large">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" alt="User Avatar" class="avatar-large">
+                    <h2 class="username">User</h2>
+                    <div class="user-email">User@gmail.com</div>
+                    <div class="plan-badge">Pro Plan</div>
+                </div>
+                <div class="usage-section">
+                    <div class="usage-header">
+                        <h3>Message Usage</h3>
+                        <span class="reset-time">Resets Wednesday at 4:39 PM</span>
+                    </div>
+
+                    <div class="usage-bars">
+                        <div class="usage-type">
+                            <div class="usage-label">
+                                <span>Standard</span>
+                                <span>0/1500</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Standard message usage"></div>
+                            </div>
+                            <div class="remaining">1500 messages remaining</div>
+                        </div>
+
+                        <div class="usage-type">
+                            <div class="usage-label">
+                                <span>Premium</span>
+                                <span>0/100</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" aria-label="Premium message usage"></div>
+                            </div>
+                            <div class="remaining">100 messages remaining</div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="manage-subscription">Manage Subscription</button>
+                </div>
+            </div>
+
+            <div class="settings-content">
+                <nav class="settings-tabs">
+                    <div class="tab-group" id="settings-tab-group">
+                        <!-- Tab buttons will be dynamically generated here -->
+                    </div>
+                </nav>
+
+                <div class="settings-panel active" id="account-panel">
+                    <h1>Pro Plan Benefits</h1>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <h3>All AI Models</h3>
+                            <p>Get access to our full suite of models including Claude, α3-mini-high, and more!</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M8 12h8M8 8h8M8 16h6"/></svg>
+                            </div>
+                            <h3>Generous Message Limits</h3>
+                            <p>Receive 1500 standard message credits per month, plus 100 premium credits per month (premium credits are for image gen, Claude and Grok)*</p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <h3>Priority Support</h3>
+                            <p>Get faster responses and dedicated assistance</p>
+                        </div>
+                    </div>
+
+                    <h2>OpenRouter API Key</h2>
+                    <p>Enter your personal OpenRouter API key to access Gemini 2.5 Flash. You can also set this as an environment variable OPENROUTER_API_KEY in your Vercel deployment.</p>
+                    <div class="form-group">
+                        <label for="openrouter-api-key">API Key:</label>
+                        <input type="password" id="openrouter-api-key" class="form-input" placeholder="sk-or-...">
+                        <button type="button" id="save-openrouter-api-key-btn" class="save-preferences-btn">Save API Key</button>
+                    </div>
+
+                    <h2>Web Search Settings</h2>
+                    <p>Configure web search settings for OpenRouter models that support web search functionality.</p>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="web-search-enabled" title="Enable web search for compatible models">
+                            Enable Web Search
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="web-search-max-results">Maximum Search Results:</label>
+                        <input type="number" id="web-search-max-results" class="form-input" min="1" max="10" value="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="web-search-prompt">Custom Search Prompt:</label>
+                        <textarea id="web-search-prompt" class="form-textarea" rows="3" placeholder="Optional: Custom instructions for web search"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="web-search-options">Search Quality:</label>
+                        <select id="web-search-options" class="form-select">
+                            <option value="fast">Fast</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="thorough">Thorough</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="save-web-search-settings-btn" class="save-preferences-btn">Save Web Search Settings</button>
+
+                    <h2>Danger Zone</h2>
+                    <div class="danger-section">
+                        <p>Permanently delete your account and all associated data.</p>
+                        <button type="button" class="delete-account-btn">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
