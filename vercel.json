@@ -3,14 +3,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
-  "env": {
-    "VITE_OPENROUTER_API_KEY": "@openrouter_api_key"
-  },
-  "build": {
-    "env": {
-      "VITE_OPENROUTER_API_KEY": "@openrouter_api_key"
-    }
-  },
+
   "headers": [
     {
       "source": "/(.*)",
