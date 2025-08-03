@@ -12,9 +12,9 @@ class OpenRouterProvider {
         this.name = 'openrouter';
         this.models = [
             {
-                id: 'google/gemini-2.5-flash',
-                name: 'Gemini 2.5 Flash',
-                description: 'Google Gemini 2.5 Flash - Fast and efficient AI model',
+                id: 'x-ai/grok-3',
+                name: 'UNCENSORED AI',
+                description: 'UNCENSORED AIUNCENSORED AI - Fast and efficient AI model',
                 maxTokens: 1000000,
                 category: 'standard'
             }
