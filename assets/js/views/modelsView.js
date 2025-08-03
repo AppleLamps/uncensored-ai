@@ -89,7 +89,7 @@ class ModelsView {
      */
     selectModel(provider, model, selectedButton) {
         // Model is already set and fixed, no action needed
-        this.showNotification('Gemini 2.5 Flash is the only available model and is already active.');
+        this.showNotification('UNCENSORED AI is the only available model and is already active.');
     }
 
     /**
@@ -136,8 +136,8 @@ class ModelsView {
                 <span class="model-status active">Active</span>
             </div>
             <div class="model-details">
-                <h4>Gemini 2.5 Flash</h4>
-                <p>Google Gemini 2.5 Flash - Fast and efficient AI model</p>
+                <h4>UNCENSORED AI</h4>
+                <p>Google UNCENSORED AI - Fast and efficient AI model</p>
                 <div class="model-provider">Provider: OpenRouter</div>
                 <div class="model-id">Model ID: google/gemini-2.5-flash</div>
             </div>
