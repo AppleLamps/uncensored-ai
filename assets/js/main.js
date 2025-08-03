@@ -23,7 +23,7 @@ function initializeApiProviders() {
         }, 100);
 
         // Set the default and only model
-        apiService.setActiveModel('openrouter', 'google/gemini-2.5-flash');
+        apiService.setActiveModel('openrouter', 'x-ai/grok-3');
 
         // System prompt service will handle its own initialization and migration
         // No need to set system message on chat service anymore
